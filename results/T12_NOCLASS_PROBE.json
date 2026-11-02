@@ -1,0 +1,137 @@
+{
+ "protocol": {
+  "T": 12,
+  "eps": 5.0,
+  "delta": 1e-05,
+  "sigma": 3.653012295334837,
+  "lambda_class": 0.0,
+  "release": "decoupled",
+  "seeds": 1,
+  "noise_seed": 0,
+  "K": 1000,
+  "M": 1110
+ },
+ "rounds": [
+  {
+   "round": 0,
+   "cands": 1000,
+   "nnz": 725,
+   "ESS": 308.1,
+   "top10": 0.0951,
+   "per_record_class_TV": 0.4804,
+   "seconds": 120.7
+  },
+  {
+   "round": 1,
+   "cands": 1110,
+   "nnz": 747,
+   "ESS": 385.2,
+   "top10": 0.0763,
+   "per_record_class_TV": 0.4805,
+   "seconds": 118.4
+  },
+  {
+   "round": 2,
+   "cands": 1110,
+   "nnz": 815,
+   "ESS": 461.8,
+   "top10": 0.0682,
+   "per_record_class_TV": 0.4869,
+   "seconds": 126.7
+  },
+  {
+   "round": 3,
+   "cands": 1110,
+   "nnz": 824,
+   "ESS": 473.2,
+   "top10": 0.0616,
+   "per_record_class_TV": 0.5079,
+   "seconds": 114.5
+  },
+  {
+   "round": 4,
+   "cands": 1110,
+   "nnz": 816,
+   "ESS": 489.3,
+   "top10": 0.0546,
+   "per_record_class_TV": 0.5165,
+   "seconds": 125.3
+  },
+  {
+   "round": 5,
+   "cands": 1110,
+   "nnz": 841,
+   "ESS": 520.3,
+   "top10": 0.0532,
+   "per_record_class_TV": 0.5054,
+   "seconds": 102.6
+  },
+  {
+   "round": 6,
+   "cands": 1110,
+   "nnz": 859,
+   "ESS": 530.3,
+   "top10": 0.0532,
+   "per_record_class_TV": 0.5059,
+   "seconds": 94.4
+  },
+  {
+   "round": 7,
+   "cands": 1110,
+   "nnz": 831,
+   "ESS": 503.6,
+   "top10": 0.0532,
+   "per_record_class_TV": 0.5003,
+   "seconds": 74.4
+  },
+  {
+   "round": 8,
+   "cands": 1110,
+   "nnz": 825,
+   "ESS": 497.0,
+   "top10": 0.0518,
+   "per_record_class_TV": 0.5064,
+   "seconds": 117.3
+  },
+  {
+   "round": 9,
+   "cands": 1110,
+   "nnz": 840,
+   "ESS": 506.1,
+   "top10": 0.0528,
+   "per_record_class_TV": 0.4904,
+   "seconds": 123.1
+  },
+  {
+   "round": 10,
+   "cands": 1110,
+   "nnz": 839,
+   "ESS": 524.1,
+   "top10": 0.0511,
+   "per_record_class_TV": 0.5068,
+   "seconds": 125.0
+  },
+  {
+   "round": 11,
+   "cands": 1110,
+   "nnz": 830,
+   "ESS": 517.2,
+   "top10": 0.0532,
+   "per_record_class_TV": 0.5013,
+   "seconds": 129.8
+  }
+ ],
+ "final": {
+  "Avg": 0.6312288494658463,
+  "metrics": {
+   "Avg": 0.6312288494658463,
+   "Count": 1.1783705324548799,
+   "Class": 0.974191017582607,
+   "Rel": 0.6778522228555185,
+   "Ctr": 0.5447871176427755,
+   "Size": 0.24593648046654593,
+   "Scale": 0.16623572579275134
+  }
+ },
+ "elapsed_s": 1411.0
+}

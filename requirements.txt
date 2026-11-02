@@ -1,0 +1,8 @@
+numpy
+scipy
+scikit-learn
+pandas
+POT
+ijson
+matplotlib
+huggingface_hub

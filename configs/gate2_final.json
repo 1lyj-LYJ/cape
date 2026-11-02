@@ -1,0 +1,42 @@
+{
+  "_comment": "FROZEN Gate-2 configuration (v6-strata, 2026-10-07). Dev seeds: s0 PASSED 5/6, s1 PASSED 6/6 (vs per-seed 800-sample baselines; formal numbers vs exact 10k public prior via scripts/multiseed_verdict.py). DO NOT TUNE FURTHER: distance, matching, selection, quotas, mutation, projection are locked. Gate 3 (DP) starts from this config; DP results must not trigger parameter changes. Privacy: one image = one record, add/remove adjacency (Delta_2 = 1), budget ONLY on the per-round Gaussian noisy vote histogram; selection/mutation/projection/population-release are post-processing. Final candidate population IS the synthetic layout dataset.",
+  "data": {
+    "private_jsonl": "data/coco_private/coco_layouts.jsonl",
+    "private_subset_seed": 0,
+    "n_private": 800,
+    "public_instances": "data/raw/annotations/instances_train2017.json",
+    "pool_max_sizes_per_class": 30,
+    "vocab": "configs/coco80_classes.json (PUBLIC COCO-80, no private-derived vocab)"
+  },
+  "matching": {
+    "lambda_class": 1.0, "lambda_center": 2.0, "lambda_size": 1.0,
+    "lambda_giou": 1.0, "unmatched_penalty": 2.5,
+    "normalization": "unmatched penalty / n_REFERENCE (the private record)"
+  },
+  "engine": {
+    "n_candidates": 1000, "n_parents": 280, "n_children_per_parent": 1,
+    "n_seeds_from_public": 550, "max_mutation_steps": 3,
+    "refine_quantile": 0.25, "n_rounds": 12
+  },
+  "selection": {
+    "n_select": 280, "n_elite": 93, "lambda_redundancy": 0.6,
+    "min_bucket_frac": 0.12, "rare_frac": 0.30, "rare_threshold": 0.005,
+    "center_tau": 0.25,
+    "strata_quotas": "prior_strata_quotas(pool, freq, n_sim=10000, scale=0.70, seed=777): joint (count-bucket x dominant-class-decile) quotas proportional to the PUBLIC generator's simulated joint distribution"
+  },
+  "mutation": {
+    "translate_sigma": 0.05, "group_sigma": 0.05,
+    "p_add": 0.03, "p_delete": 0.03, "p_replace": 0.20
+  },
+  "dp": {
+    "accountant": "pe/accountant.py RDP, Gaussian mechanism, no subsampling",
+    "delta": 1e-5,
+    "sigma_calibration": "sigma_for_epsilon(eps_total, delta, T) — budget is TOTAL over rounds",
+    "release": "final candidate population = synthetic layouts (post-processing)"
+  },
+  "gate2_criteria": {
+    "metrics": ["count_TV", "class_TV", "relation_marginal_TV", "center_TV", "size_TV", "scale_W1"],
+    "min_improved": 5, "catastrophic_ratio": 1.2,
+    "multi_seed": "deferred until after DP GO/NO-GO (dev s0/s1 stable); then untouched-seed sanity"
+  }
+}
